@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="w-75 mx-auto my-2 p-2 rounded bg-info">
+      <h1 class="text-center">Crud System</h1>
+      <div class="form-floating my-3">
+        <input
+          oninput="validation(this)"
+          type="text"
+          class="form-control"
+          id="productName"
+          placeholder="productName"
+        />
+        <div class="alert alert-danger d-none mt-2" role="alert">
+          You should start with a capital letter!
+        </div>
+        <label for="productName">Product Name</label>
+      </div>
+      <div class="form-floating my-3">
+        <input
+          oninput="validation(this)"
+          type="number"
+          class="form-control"
+          id="productPrice"
+          placeholder="productPrice"
+        />
+        <div class="alert alert-danger d-none mt-2" role="alert">
+          You can not add less than 2 numbers and more than 5 numbers!
+        </div>
+        <label for="productPrice">Product Price</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          oninput="validation(this)"
+          type="text"
+          class="form-control"
+          id="productCategory"
+          placeholder="productCategory"
+          list="category"
+        />
+        <div class="alert alert-danger d-none mt-2" role="alert">
+          You must choose from the list!
+        </div>
+        <label for="productCategory">Product Category</label>
+        <datalist id="category">
+          <option value="Screen"></option>
+          <option value="Mobile"></option>
+          <option value="Laptop"></option>
+          <option value="Electronics"></option>
+          <option value="Others"></option>
+        </datalist>
+      </div>
+      <div class="form-floating my-3">
+        <textarea
+          oninput="validation(this)"
+          class="form-control"
+          id="productDescription"
+          placeholder="productDescription"
+          style="height: 100px"
+        ></textarea>
+        <div class="alert alert-danger d-none mt-2" role="alert">
+          Minimum 2 letters!
+        </div>
+        <label for="productDescription">Product Description</label>
+      </div>
+      <div class="form-floating my-3">
+        <input
+          type="file"
+          class="form-control"
+          id="productImage"
+          placeholder="productImage"
+        />
+        <label for="productImage">Product Image</label>
+      </div>
+      <button onclick="addProduct()" id="btnAdd" class="btn btn-primary">
+        Add product
+      </button>
+      <button onclick="updateProduct()" id="btnUpdate" class="btn btn-primary d-none">
+        Update product
+      </button>
+    </div>
+    <input
+      oninput="search()"
+      type="search"
+      id="searchInput"
+      class="form-control w-75 mx-auto my-2"
+      placeholder="Search"
+    />
+    <table class="table text-center">
+      <th>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </th>
+      <tbody id="tableData"></tbody>
+    </table>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
